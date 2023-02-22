@@ -47,7 +47,7 @@ else:
 
 ## MAINPAGE
 st.title(":book: SHE Course Helper!")
-st.subheader("By Faris Faiz and Faiqah Azman")
+st.subheader("By Faris Faiz")
 link = '[Source Code](https://github.com/Faris-Faiz/SHE-Course-Helper)'
 st.markdown(link, unsafe_allow_html=True)
 st.subheader("NOTICE: DATA ISN'T UPDATED IN REAL TIME, LATEST UPDATE OF DATA IS 22/2/2023!")
