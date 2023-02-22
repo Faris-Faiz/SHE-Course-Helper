@@ -50,7 +50,7 @@ st.title(":book: SHE Course Helper!")
 st.subheader("By Faris Faiz")
 link = '[Source Code](https://github.com/Faris-Faiz/SHE-Course-Helper)'
 st.markdown(link, unsafe_allow_html=True)
-st.subheader("NOTICE: DATA ISN'T UPDATED IN REAL TIME, LATEST UPDATE OF DATA IS 22/2/2023! \nClick the arrow on the left for filtering options!")
+st.subheader("NOTICE: DATA ISN'T UPDATED IN REAL TIME, LATEST UPDATE OF DATA IS 23/2/2023! \nClick the arrow on the left for filtering options!")
 
 vacant_courses = she_courses_cluster1['FULL'].value_counts()['F']
 
