@@ -66,6 +66,6 @@ with middle_column:
 she_courses_cluster1.groupby(by=["FULL"]).sum()
 
 st.title("List of Available Courses:")
-st.subheader("Any -1 Values mean it's unknown, Registered means people have registered for the subject, Capacity is the capacity of the subject. \nIt's better to focus on the subjects that don't have any negative numbers!")
+st.write("Any -1 Values mean it's unknown, Registered means people have registered for the subject, Capacity is the capacity of the subject. \nIt's better to focus on the subjects that don't have any negative numbers!")
 df_selection.drop(columns=['FULL', 'CLUSTER'], axis=1, inplace=True)
 st.dataframe(df_selection)
