@@ -18,3 +18,5 @@ after creating virtual environment, activate the environment and install the req
 `pip install -r requirements.txt`
 
 then, run `python cron.py` inside the environment then it shall run the scraper every hour
+
+CAUTION: DO NOT TURN OFF YOUR MONITOR OR LET IT BE TURNED OFF, IT WILL DISTURB THE SCRAPING PROCESS
