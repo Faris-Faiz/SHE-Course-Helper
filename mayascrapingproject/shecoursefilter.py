@@ -45,7 +45,7 @@ def main():
             if course['code'] in code:
                 faculty = subject[0].value
                 course_name = subject[2].value
-                full = subject[7].value
+                full = subject[7].value[0]
                 medium = subject[4].value
                 registered = subject[5].value
                 capacity = subject[6].value
