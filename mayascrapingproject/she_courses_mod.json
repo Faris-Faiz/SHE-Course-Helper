@@ -1,0 +1,522 @@
+[
+    {
+        "code": "GBA0021",
+        "name": "APPRECIATING LITERATURE (This course will be taught in English)",
+        "cluster": "1"
+    },
+    {
+        "code": "GBB0031",
+        "name": "DESIGN THINKING",
+        "cluster": "1"
+    },
+    {
+        "code": "GBC0004",
+        "name": "PERSONAL FINANCE",
+        "cluster": "1"
+    },
+    {
+        "code": "GBC0005",
+        "name": "UNDERSTANDING CONSUMER PSYCHOLOGY",
+        "cluster": "1"
+    },
+    {
+        "code": "GBC0019",
+        "name": "PERSONAL INCOME TAX",
+        "cluster": "1"
+    },
+    {
+        "code": "GBE0015",
+        "name": "SEEING THE WORLD LIKE AN ECONOMIST",
+        "cluster": "1"
+    },
+    {
+        "code": "GBI0001",
+        "name": "PRINCIPLES OF MUAMALAT AND ISLAMIC MANAGEMENT",
+        "cluster": "1"
+    },
+    {
+        "code": "GBI0001",
+        "name": "PRINCIPLES OF MUAMALAT AND ISLAMIC MANAGEMENT",
+        "cluster": "1"
+    },
+    {
+        "code": "GBI0013",
+        "name": "ISLAM AND SCIENCE",
+        "cluster": "1"
+    },
+    {
+        "code": "GBI0013",
+        "name": "ISLAM AND SCIENCE",
+        "cluster": "1"
+    },
+    {
+        "code": "GBI0013",
+        "name": "ISLAM AND SCIENCE",
+        "cluster": "1"
+    },
+    {
+        "code": "GBL0008",
+        "name": "MY CONSTITUTION",
+        "cluster": "1"
+    },
+    {
+        "code": "GBM0006",
+        "name": "PHYSICS AND RADIATION IN LIFE",
+        "cluster": "1"
+    },
+    {
+        "code": "GBO0032",
+        "name": "MEDICINES AND HEALTH",
+        "cluster": "1"
+    },
+    {
+        "code": "GBR0024",
+        "name": "INTRODUCTION TO DRAMA AESTHETIC",
+        "cluster": "1"
+    },
+    {
+        "code": "GBS0023",
+        "name": "DEALING WITH PSEUDOSCIENCE",
+        "cluster": "1"
+    },
+    {
+        "code": "GBS0025",
+        "name": "CHEMISTRY IN EVERYDAY LIFE (HANYA BAGI PELAJAR LUAR FAKULTI (SHE))",
+        "cluster": "1"
+    },
+    {
+        "code": "GBS0028",
+        "name": "BASIC STATISTICS",
+        "cluster": "1"
+    },
+    {
+        "code": "GBS0030",
+        "name": "PHILOSOPHY OF SCIENCE",
+        "cluster": "1"
+    },
+    {
+        "code": "GBT0002",
+        "name": "CRITICAL THINKING AND PROBLEM SOLVING SKILLS",
+        "cluster": "1"
+    },
+    {
+        "code": "GBT0002",
+        "name": "CRITICAL THINKING AND PROBLEM SOLVING SKILLS",
+        "cluster": "1"
+    },
+    {
+        "code": "GBT0002",
+        "name": "CRITICAL THINKING AND PROBLEM SOLVING SKILLS",
+        "cluster": "1"
+    },
+    {
+        "code": "GBX0009",
+        "name": "INFORMATION SEEKING, WRITING, AND ACADEMIC PUBLICATIONS",
+        "cluster": "1"
+    },
+    {
+        "code": "GBX0009",
+        "name": "INFORMATION SEEKING, WRITING, AND ACADEMIC PUBLICATIONS",
+        "cluster": "1"
+    },
+    {
+        "code": "GBX0009",
+        "name": "INFORMATION SEEKING, WRITING, AND ACADEMIC PUBLICATIONS",
+        "cluster": "1"
+    },
+    {
+        "code": "GBX0009",
+        "name": "INFORMATION SEEKING, WRITING, AND ACADEMIC PUBLICATIONS",
+        "cluster": "1"
+    },
+    {
+        "code": "GBX0010",
+        "name": "INTRODUCTION TO SOCIAL ENTREPRENEURSHIP",
+        "cluster": "1"
+    },
+    {
+        "code": "GBX0011",
+        "name": "STEM EDUCATION MANAGEMENT",
+        "cluster": "1"
+    },
+    {
+        "code": "GDA0007",
+        "name": "PSYCHOLOGY POSITIVE IN DAILY LIFE",
+        "cluster": "2"
+    },
+    {
+        "code": "GDI0001",
+        "name": "STRENGTHENING OF ISLAMIC CREED",
+        "cluster": "2"
+    },
+    {
+        "code": "GDI0003",
+        "name": "ISLAMIC AKHLAQ EDUCATION",
+        "cluster": "2"
+    },
+    {
+        "code": "GDM0006",
+        "name": "GLOBAL TRENDS IN FOOD AND HEALTH",
+        "cluster": "2"
+    },
+    {
+        "code": "GDP0014",
+        "name": "STRESS MANAGEMENT",
+        "cluster": "2"
+    },
+    {
+        "code": "GDR0010",
+        "name": "DANCE IN THE WORLD",
+        "cluster": "2"
+    },
+    {
+        "code": "GDT0023",
+        "name": "TOKI PONA: A MINIMALIST CONSTRUCTED LANGUAGE",
+        "cluster": "2"
+    },
+    {
+        "code": "GDX0015",
+        "name": "APPRECIATION OF HARMONY SINGING (Room: Bilik Seminar, CITrA)",
+        "cluster": "2"
+    },
+    {
+        "code": "GFE0007",
+        "name": "DATA ANALYTICS MADE EASY: FOR BEGINNERS",
+        "cluster": "3"
+    },
+    {
+        "code": "GFK0026",
+        "name": "ASSISTIVE & REHABILITATION TECHNOLOGY",
+        "cluster": "3"
+    },
+    {
+        "code": "GFK0027",
+        "name": "INTRODUCTION TO BIOMEDICAL ENGINEERING",
+        "cluster": "3"
+    },
+    {
+        "code": "GFL0004",
+        "name": "E-COMMERCE LAW",
+        "cluster": "3"
+    },
+    {
+        "code": "GFP0009",
+        "name": "DIGITAL CREATIVITY *English Slot (International Students)",
+        "cluster": "3"
+    },
+    {
+        "code": "GFP0010",
+        "name": "EDUCATIONAL TECHNOLOGY FOR ALL",
+        "cluster": "3"
+    },
+    {
+        "code": "GFP0011",
+        "name": "RESPONSIBLE DIGITAL CITIZENSHIP",
+        "cluster": "3"
+    },
+    {
+        "code": "GFR0019",
+        "name": "DIGITAL VIDEO PRODUCTION FOR WEB",
+        "cluster": "3"
+    },
+    {
+        "code": "GFS0013",
+        "name": "INTRODUCTION TO BIOCOMPUTING",
+        "cluster": "3"
+    },
+    {
+        "code": "GFS0014",
+        "name": "SCIENTIFIC COMPUTING FOR NON-SCIENTISTS",
+        "cluster": "3"
+    },
+    {
+        "code": "GFW0015",
+        "name": "COMPUTATIONAL THINKING WITH ROBOTICS",
+        "cluster": "3"
+    },
+    {
+        "code": "GFW0017",
+        "name": "SOCIAL INFORMATICS",
+        "cluster": "3"
+    },
+    {
+        "code": "GFW0018",
+        "name": "SECURITY AND ETHICS IN CYBERSPACE",
+        "cluster": "3"
+    },
+    {
+        "code": "GFW0018",
+        "name": "SECURITY AND ETHICS IN CYBERSPACE",
+        "cluster": "3"
+    },
+    {
+        "code": "GFW0031",
+        "name": "COMPUTER NETWORKS FOR EVERYBODY",
+        "cluster": "3"
+    },
+    {
+        "code": "GFW0033",
+        "name": "WEBSITE DEVELOPMENT AND OPTIMIZATION",
+        "cluster": "3"
+    },
+    {
+        "code": "GQA0020",
+        "name": "LITERATURE AND GENDER (This course will be taught in English)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQA0021",
+        "name": "INTRODUCTION TO CHINESE CULTURE (This course will be taught in English)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQA0022",
+        "name": "BITE-SIZE CLIMATE ACTION",
+        "cluster": "4"
+    },
+    {
+        "code": "GQB0008",
+        "name": "SUSTAINABLE CONSTRUCTION",
+        "cluster": "4"
+    },
+    {
+        "code": "GQC0017",
+        "name": "INTRODUCTION TO CORPORATE SOCIAL RESPONSIBILITY",
+        "cluster": "4"
+    },
+    {
+        "code": "GQE0011",
+        "name": "DEMOCRACY AND SOCIETY",
+        "cluster": "4"
+    },
+    {
+        "code": "GQE0011",
+        "name": "DEMOCRACY AND SOCIETY",
+        "cluster": "4"
+    },
+    {
+        "code": "GQH0054",
+        "name": "NASI LEMAK AND THE FOOD SYSTEM",
+        "cluster": "4"
+    },
+    {
+        "code": "GQH0055",
+        "name": "HEALTHY PLANET, HEALTHY LIFE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQI0001",
+        "name": "FUNDAMENTALS OF ISLAMIC POLITICAL THOUGHT",
+        "cluster": "4"
+    },
+    {
+        "code": "GQI0002",
+        "name": "ISLAMIC LAW AND GLOBAL ISSUES",
+        "cluster": "4"
+    },
+    {
+        "code": "GQI0003",
+        "name": "ISLAMIC ECONOMIC INSTITUTIONS",
+        "cluster": "4"
+    },
+    {
+        "code": "GQJ0004",
+        "name": "MALAY LANGUAGE USAGE IN SOCIETY",
+        "cluster": "4"
+    },
+    {
+        "code": "GQJ0007",
+        "name": "INTRODUCTION TO MALAY CULTURE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQK0047",
+        "name": "ENERGY, ENVIRONMENT, AND SOCIETY",
+        "cluster": "4"
+    },
+    {
+        "code": "GQK0048",
+        "name": "GREEN FUELS",
+        "cluster": "4"
+    },
+    {
+        "code": "GQK0049",
+        "name": "GREENING MALAYSIAN INDUSTRY",
+        "cluster": "4"
+    },
+    {
+        "code": "GQK0050",
+        "name": "INNOVATION IN SUSTAINABILITY",
+        "cluster": "4"
+    },
+    {
+        "code": "GQK0051",
+        "name": "INTRODUCTION TO ENVIRONMENTAL RISK, HAZARDS AND FORENSIC",
+        "cluster": "4"
+    },
+    {
+        "code": "GQK0052",
+        "name": "SUSTAINABLE AND RESILIENT CONSTRUCTION MATERIALS",
+        "cluster": "4"
+    },
+    {
+        "code": "GQO0053",
+        "name": "INTRODUCTION TO THE MICROBIAL WORLD",
+        "cluster": "4"
+    },
+    {
+        "code": "GQP0014",
+        "name": "EDUCATION FOR SUSTAINABLE AND SUSTAINABILITY",
+        "cluster": "4"
+    },
+    {
+        "code": "GQP0015",
+        "name": "GLOBAL EDUCATION*English Slot (International Students)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQP0016",
+        "name": "COMPARING EDUCATION SYSTEMS",
+        "cluster": "4"
+    },
+    {
+        "code": "GQS0026",
+        "name": "EARTH NATURAL RESOURCES",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0039",
+        "name": "COMMUNICATION SKILLS FOR EMPLOYMENT PURPOSES",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0040",
+        "name": "QURANIC LANGUAGE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0040",
+        "name": "QURANIC LANGUAGE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0040",
+        "name": "QURANIC LANGUAGE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0040",
+        "name": "QURANIC LANGUAGE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0040",
+        "name": "QURANIC LANGUAGE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0040",
+        "name": "QURANIC LANGUAGE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0040",
+        "name": "QURANIC LANGUAGE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0041",
+        "name": "ARABIC LANGUAGE AND CULTURE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0041",
+        "name": "ARABIC LANGUAGE AND CULTURE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0041",
+        "name": "ARABIC LANGUAGE AND CULTURE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0041",
+        "name": "ARABIC LANGUAGE AND CULTURE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0041",
+        "name": "ARABIC LANGUAGE AND CULTURE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0041",
+        "name": "ARABIC LANGUAGE AND CULTURE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0041",
+        "name": "ARABIC LANGUAGE AND CULTURE",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0042",
+        "name": "CHINESE LANGUAGE AND CULTURE (THIS COURSE IS ONLY OFFERED TO STUDENT WHO DO NOT HAVE BASIC KNOWLEDGE OF CHINESE.)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0042",
+        "name": "CHINESE LANGUAGE AND CULTURE (THIS COURSE IS ONLY OFFERED TO STUDENT WHO DO NOT HAVE BASIC KNOWLEDGE OF CHINESE.)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0042",
+        "name": "CHINESE LANGUAGE AND CULTURE (THIS COURSE IS ONLY OFFERED TO STUDENT WHO DO NOT HAVE BASIC KNOWLEDGE OF CHINESE.)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0042",
+        "name": "CHINESE LANGUAGE AND CULTURE (THIS COURSE IS ONLY OFFERED TO STUDENT WHO DO NOT HAVE BASIC KNOWLEDGE OF CHINESE.)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQT0043",
+        "name": "JOURNALISM FOR SUSTAINABLE DEVELOPMENT",
+        "cluster": "4"
+    },
+    {
+        "code": "GQX0028",
+        "name": "INTRODUCTION TO RELIGIOUS DIALOGUE (Room: Bilik Seminar, CITrA)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQX0031",
+        "name": "APPRECIATION OF MALAYSIAN HERITAGE DANCE (Room: Bilik Seminar, CITrA)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQX0035",
+        "name": "INTRODUCTION TO DISABILITY EQUALITY TRAINING",
+        "cluster": "4"
+    },
+    {
+        "code": "GQX0036",
+        "name": "HERITAGE OF THE ART OF CANTING (Room: Bilik Seminar, CITrA)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQX0037",
+        "name": "HERITAGE OF TRADITIONAL CRAFT (Room: Bilik SKET C, CITrA)",
+        "cluster": "4"
+    },
+    {
+        "code": "GQX0038",
+        "name": "INTRODUCTION TO TOBACCO CONTROL",
+        "cluster": "4"
+    },
+    {
+        "code": "GQX0056",
+        "name": "INTEGRITY AND ANTI-CORRUPTION COURSE (For Local Student Only)",
+        "cluster": "4"
+    }
+]
