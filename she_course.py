@@ -4,8 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import altair as alt
 import plotly.graph_objects as go
+from datetime import datetime
 
-excel_file = ('SHE COURSES.xlsx')
+excel_file = ('mayascrapingproject/shecourselist.xlsx')
 
 st.set_page_config(page_title="SHE Helper!",
                    page_icon=":book:",
@@ -23,7 +24,7 @@ agree = st.sidebar.checkbox('No negatives (DANGEROUS!)', value=True)
 learning_mode = st.sidebar.multiselect(
     "Select the Learing Mode:",
     options=she_courses_cluster1["MEDIUM"].unique(),
-    default=["ONLINE", "PHYSICAL"]
+    default=["ONLINE", "LECTURE"]
 )
 
 cluster = st.sidebar.selectbox(
@@ -64,11 +65,21 @@ fig.update_layout(
         'yanchor': 'top'
     })
 
+
+# Retrieving last updated data
+# Open the file in read mode
+with open('mayascrapingproject/lastran.txt', 'r') as file:
+    # Read the contents of the file
+    content = file.read()
+
+date_format = "%Y-%m-%d %H:%M:%S.%f"
+datetime_object = datetime.strptime(content, date_format)
+formatted_dt = datetime_object.strftime('%I:%M%p on %d of %B %Y')
+
 ## MAINPAGE
 
 st.markdown("## :book: SHE Course Helper!     _by Faris Faiz_")
-    
-st.markdown("##### Last Data Updated on 23/2/2023")
+st.markdown("##### Last Data Updated at " + formatted_dt)
 
 vacant_courses = she_courses_cluster1['FULL'].value_counts()['F']
 
@@ -101,4 +112,4 @@ st.title("List of Available Courses:")
 st.markdown("**-1 Values :arrow_right: it's unknown**, **Registered** :arrow_right: **registered for the subject**, **Capacity** :arrow_right: **capacity of the subject.** \nIt's better to focus on the subjects that don't have any negative numbers!")
 df_selection.drop(columns=['FULL', 'CLUSTER'], axis=1, inplace=True)
 st.write("Showing courses from cluster " + str(cluster))
-st.dataframe(df_selection)
+st.dataframe(df_selection.style.hide_index())
