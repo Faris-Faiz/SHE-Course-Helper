@@ -15,7 +15,7 @@ NOTE: the virtual environment folder really need to be named `venv`, if you want
 
 after creating virtual environment, activate the environment and install the requirements by runnning
 
-`pip install -r requirements.txt`
+`pip install -r keperluan.txt`
 
 then, run `python cron.py` inside the environment then it shall run the scraper every hour
 
