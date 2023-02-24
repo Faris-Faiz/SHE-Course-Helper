@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import altair as alt
+import plotly.graph_objects as go
 
 excel_file = ('SHE COURSES.xlsx')
 
@@ -9,8 +12,11 @@ st.set_page_config(page_title="SHE Helper!",
                    layout="wide")
 
 she_courses_cluster1 = pd.read_excel(excel_file)
+df = she_courses_cluster1
 
 # SIDEBAR
+link = '[Source Code](https://github.com/Faris-Faiz/SHE-Course-Helper)'
+st.sidebar.markdown("##### " + link, unsafe_allow_html=True)
 st.sidebar.header("Filtering the SHE course:")
 agree = st.sidebar.checkbox('No negatives (DANGEROUS!)', value=True)
 
@@ -43,30 +49,56 @@ else:
         "FACULTY == @faculty & MEDIUM == @learning_mode & FULL == @full & CLUSTER == @cluster"
     )
 
+## Doughnut Graph stuff
+df = she_courses_cluster1.groupby('CLUSTER')['FULL'].apply(lambda x: (x == 'F').sum()).reset_index(name='count')
 
+fig = go.Figure(data=[go.Pie(values=df['count'], hole=.6, labels=['Cluster 1', 'Cluster 2', 'Cluster 3', 'Cluster 4'])])
+fig.update_traces(textinfo='percent+label')
+
+fig.update_layout(
+    title={
+        'text': "Percentage of vacant classes based on the cluster they're in",
+        'y': 0.88,
+        'x': 0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'
+    })
 
 ## MAINPAGE
-st.title(":book: SHE Course Helper!")
-st.subheader("By Faris Faiz")
-link = '[Source Code](https://github.com/Faris-Faiz/SHE-Course-Helper)'
-st.markdown(link, unsafe_allow_html=True)
-st.subheader("NOTICE: DATA ISN'T UPDATED IN REAL TIME, LATEST UPDATE OF DATA IS 23/2/2023! \nClick the arrow on the left for filtering options!")
+
+st.markdown("## :book: SHE Course Helper!     _by Faris Faiz_")
+    
+st.markdown("##### Last Data Updated on 23/2/2023")
 
 vacant_courses = she_courses_cluster1['FULL'].value_counts()['F']
 
 left_column, middle_column, right_column = st.columns(3)
+
+total_courses = len(she_courses_cluster1)
+
+percent_available = (vacant_courses / total_courses) * 100
+
+# Chart section
+
+chart_left, chart_middle, chart_right = st.columns(3)
+
+with chart_left:
+    st.plotly_chart(fig)
+
+with chart_right:
+    df_courses_available = she_courses_cluster1.groupby('CLUSTER')['FULL'].apply(lambda x: (x == 'F').sum()).reset_index(name='AVAILABLE COURSES')
+    st.dataframe(df_courses_available)
+
 with left_column:
-    st.subheader("Available Courses:")
-    st.subheader(len(she_courses_cluster1))
+    st.metric("Available Courses:", total_courses)
 
 with middle_column:
-    st.subheader("Vacant Courses:")
-    st.subheader(vacant_courses)
+    st.metric("Vacant Courses:", vacant_courses)
 
 she_courses_cluster1.groupby(by=["FULL"]).sum()
 
 st.title("List of Available Courses:")
-st.write("Any -1 Values mean it's unknown, Registered means people have registered for the subject, Capacity is the capacity of the subject. \nIt's better to focus on the subjects that don't have any negative numbers!")
+st.markdown("**-1 Values :arrow_right: it's unknown**, **Registered** :arrow_right: **registered for the subject**, **Capacity** :arrow_right: **capacity of the subject.** \nIt's better to focus on the subjects that don't have any negative numbers!")
 df_selection.drop(columns=['FULL', 'CLUSTER'], axis=1, inplace=True)
 st.write("Showing courses from cluster " + str(cluster))
 st.dataframe(df_selection)
