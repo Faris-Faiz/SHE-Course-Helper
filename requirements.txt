@@ -3,3 +3,6 @@ pandas
 streamlit
 fsspec
 openpyxl
+plotly
+matplotlib
+numpy
