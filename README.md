@@ -2,6 +2,10 @@
 
 A way to view the Student Holistic Empowerment courses in Universiti Malaya. Powered by Python, using Streamlit
 
+
+[Link to the project](https://faris-faiz-she-course-helper-she-course-7sfzv8.streamlit.app/)
+
+
 [Data source for this project](https://docs.google.com/spreadsheets/d/1l8V3SGRqLGC3E_v7pUJm38WvrXsCHnODomRlEaMlDNU/edit?usp=sharing)
 
 People involved in this project:
