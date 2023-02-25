@@ -11,6 +11,7 @@ A way to view the Student Holistic Empowerment courses in Universiti Malaya. Pow
 People involved in this project:
 1) Faris (Front end developer and Data Gatherer)
 2) Faiqah (Data Gatherer)
+3) Nazameerul (Auto Scraper Developer)
 
 Background:
 ------
