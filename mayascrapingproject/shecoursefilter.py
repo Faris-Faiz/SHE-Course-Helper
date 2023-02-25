@@ -36,7 +36,7 @@ def main():
     wb = openpyxl.Workbook()
     ws: WS = wb.active
 
-    headers = ('FACULTY', 'CODE', 'COURSE NAME', 'FULL', 'MEDIUM', 'REGISTERED', 'CAPICITY', 'CLUSTER')
+    headers = ('FACULTY', 'CODE', 'COURSE NAME', 'FULL', 'MEDIUM', 'REGISTERED', 'CAPACITY', 'CLUSTER')
     ws.append(headers)
 
     while len((subject := next(rows, tuple()))) != 0:
