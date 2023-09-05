@@ -7,6 +7,7 @@ import sys
 import openpyxl
 from dotenv import load_dotenv
 from openpyxl.worksheet.worksheet import Worksheet
+from selenium import webdriver
 from selenium.webdriver.common.by import By as by
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
@@ -169,11 +170,14 @@ def mentor_map(x: str):
 def main():
     load_dotenv()
 
-    driver = uc.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument('--ignore-ssl-errors=yes')
+    options.add_argument('--ignore-certificate-errors')
+    driver = uc.Chrome(options=options)
     waiter = WebDriverWait(driver, 180)
 
     driver.get('https://maya.um.edu.my/sitsvision/wrd/siw_lgn')
-    time.sleep(1)
+    time.sleep(5)
 
     userInput = driver.find_element(by.CSS_SELECTOR, '[name="MUA_CODE.DUMMY.MENSYS.1"]')
     userInput.clear()
