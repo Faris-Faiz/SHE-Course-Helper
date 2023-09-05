@@ -121,8 +121,8 @@ FACULTIES = {
 }
 
 # DALAM GROUP, YANG ADA HURUP M TU UNTUK INTERNATIONAL STUDEN
-YEAR = '2022'  # 2022 maksudnya 2022/2023 so kalau YEAR = 2012 maksudnya 2012/2013
-SEM  = 'S2'    # S2 maksudnya Semester 2, tengok bawah untuk ref
+YEAR = '2023'  # 2022 maksudnya 2022/2023 so kalau YEAR = 2012 maksudnya 2012/2013
+SEM  = 'S1'    # S2 maksudnya Semester 2, tengok bawah untuk ref
 """
 <select id="POP_UDEF.EE0B048CE1C34074975DE4D9D363418B.POP.MENSYS.2-1" name="POP_UDEF.POP.MENSYS.2-1"
     class="sv-mandatory" data-altid="chosen" style="display: none;">
