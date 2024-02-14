@@ -3,7 +3,7 @@ import time
 from datetime import datetime
 import logging
 import sys
-
+import pandas as pd
 import openpyxl
 from dotenv import load_dotenv
 from openpyxl.worksheet.worksheet import Worksheet
@@ -15,12 +15,38 @@ from seleniumwire import undetected_chromedriver as uc
 from seleniumwire.utils import decode
 from bs4 import BeautifulSoup
 
+load_dotenv()
 
 calendar_string = "body > div.sv-page-content > div > div > div > div.sv-row > div.sv-col-md-5 > div > div > div.sv-tiled-container > div > div > div:nth-child(2) > a > div > span.tiled-icon-large.sv-hidden-xs.glyphicon.lar.la-calendar"
 calendar_popup = "#sits_dialog > center > div > div > div:nth-child(2) > a > h1 > i"
 search_string = "#poddatasection > div.sv-panel.sv-panel-primary > div.sv-panel-footer > div > input.sv-col-xs-12.sv-col-sm-2.sv-btn.sv-btn-primary"
 
-
+"""
+<option value="A">FACULTY OF ARTS AND SOCIAL SCIENCES</option> slot
+<option value="AA">FACULTY OF BUSINESS AND ECONOMICS</option> if slot
+<option value="B">FACULTY OF BUILT ENVIRONMENT</option> slot
+<option value="C">FACULTY OF BUSINESS AND ACCOUNTANCY</option> i slot
+<option value="D">FACULTY OF DENTISTRY</option> i slot
+<option value="E">FACULTY OF ECONOMICS AND ADMINISTRATION</option>
+<option value="F">CENTRE FOR FOUNDATION STUDIES IN SCIENCE</option> i slot
+<option value="G">UNIVERSITY</option> islot
+<option value="H">INSTITUTE FOR ADVANCED STUDIES</option> i slot
+<option value="I">ACADEMY OF ISLAMIC STUDIES</option>
+<option value="J">ACADEMY OF MALAY STUDIES</option> islot
+<option value="K">FACULTY OF ENGINEERING</option> i slot
+<option value="L">FACULTY OF LAW</option>
+<option value="M">FACULTY OF MEDICINE</option>
+<option value="O">FACULTY OF PHARMACY</option>
+<option value="P">FACULTY OF EDUCATION</option> iF slot
+<option value="Q">ASIA EUROPE INSTITUTE</option> (iF slot
+<option value="R">FACULTY OF CREATIVE ARTS</option> iF slot
+<option value="S">FACULTY OF SCIENCE</option> slot
+<option value="T">FACULTY OF LANGUAGES AND LINGUISTICS</option>
+<option value="U">LIBRARY</option> i slot
+<option value="V">FACULTY OF SPORTS AND EXERCISE SCIENCE</option> i slot
+<option value="W">FACULTY OF COMPUTER SCIENCE AND INFORMATION TECHNOLOGY</option> iFslot
+<option value="Z">INTERNATIONAL INSTITUTE OF PUBLIC POLICY AND MANAGEMENT</option> slot
+"""
 FACULTIES = {
     "A": {
         "name": "FACULTY OF ARTS AND SOCIAL SCIENCES",
@@ -121,8 +147,20 @@ FACULTIES = {
 }
 
 # DALAM GROUP, YANG ADA HURUP M TU UNTUK INTERNATIONAL STUDEN
-YEAR = '2023'  # 2022 maksudnya 2022/2023 so kalau YEAR = 2012 maksudnya 2012/2013
-SEM  = 'S1'    # S2 maksudnya Semester 2, tengok bawah untuk ref
+YEAR = os.getenv('YEAR')  # 2022 maksudnya 2022/2023 so kalau YEAR = 2012 maksudnya 2012/2013
+SEM  = os.getenv('SEM')    # S2 maksudnya Semester 2, tengok bawah untuk ref
+
+# if SEM == 1:
+#     SEM = "S1"
+# elif SEM == 2:
+#     SEM = "S2"
+
+if SEM == "1":
+    SEM = "S1"
+elif SEM == "2":
+    SEM = "S2"
+
+
 """
 <select id="POP_UDEF.EE0B048CE1C34074975DE4D9D363418B.POP.MENSYS.2-1" name="POP_UDEF.POP.MENSYS.2-1"
     class="sv-mandatory" data-altid="chosen" style="display: none;">
@@ -166,6 +204,23 @@ def str_fil(x: str):
 def mentor_map(x: str):
     return x.strip()
 
+# Function to map course code prefixes to clusters, basically mapping SHE Course Cluster
+def map_cluster(df):
+    # Map clusters based on course code prefix
+    cluster_mapping = {
+        'GB': 1,
+        'GD': 2,
+        'GF': 3,
+        'GQ': 4
+    }
+
+    # Apply mapping function to each row
+    df['CLUSTER'] = df['CODE'].apply(lambda x: cluster_mapping.get(x[:2], None))
+
+    # Filter out rows with no matching cluster and create new DataFrame
+    she_course_df = df[df['CLUSTER'].notna()].copy()
+
+    return she_course_df
 
 def main():
     load_dotenv()
@@ -191,18 +246,11 @@ def main():
     time_format = "%Y%m%d%H%M"
     now = datetime.now().strftime(time_format)
 
-    wb = openpyxl.Workbook()
-    ws: Worksheet = wb.active
-    ws.title = now
+    # Define the columns for the DataFrame
+    columns = ['FACULTY', 'CODE', 'COURSE NAME', 'OCCURRENCE', 'MEDIUM', 'REGISTERED', 'CAPACITY', 'FULL', 'WEEK', 'DAY', 'MENTOR', 'ROOM']
 
-    headers = ('FACULTY', 'CODE','COURSE NAME', 'OCCURRENCE','MEDIUM', 'REGISTERED', 'CAPACITY', 'FULL', 'WEEK', 'DAY', 'MENTOR', 'ROOM')
-
-    ws.append(headers)
-    if len(sys.argv) > 1:
-        file_title = sys.argv[1]
-    else:
-        file_title = f'course list update - {now}.xlsx'
-    wb.save(filename=file_title)
+    # Initialize an empty DataFrame with the specified columns
+    df = pd.DataFrame(columns=columns)
 
     for faculty_code in FACULTIES.keys():
         waiter.until(ec.presence_of_element_located((by.CSS_SELECTOR, calendar_string)))
@@ -283,11 +331,34 @@ def main():
             
             room: str = subject.find_all('td')[6].text.strip()
 
-            ws.append((faculty, code, course_name, occurrence, medium, registered, capacity, full, week, day, mentor, room))
-        else:
-            wb.save(filename=file_title)
-        driver.find_element(by.CSS_SELECTOR, '#STUHM00').click()
+            row_data = {
+                'FACULTY': faculty,
+                'CODE': code,
+                'COURSE NAME': course_name,
+                'OCCURRENCE': occurrence,
+                'MEDIUM': medium,
+                'REGISTERED': registered,
+                'CAPACITY': capacity,
+                'FULL': full,
+                'WEEK': week,
+                'DAY': day,
+                'MENTOR': mentor,
+                'ROOM': room
+            }
+            df = pd.concat([df, pd.DataFrame([row_data])], ignore_index=True)
 
+        # unfiltered courses
+        df.to_excel(f'Scraped Courses (df2excel) - {now}.xlsx', index=False)
+
+        # she course only
+        she_course_df = map_cluster(df)
+        she_course_df.to_excel(f'SHE Course List (df2excel) - {now}.xlsx', index=False)
+    
+        # write the latest time
+        with open('lastran.txt', 'w') as f:
+            f.write(str(datetime.now()))
+
+        driver.find_element(by.CSS_SELECTOR, '#STUHM00').click()
 
 if __name__ == "__main__":
     main()

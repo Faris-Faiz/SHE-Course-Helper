@@ -11,7 +11,7 @@ def main():
 
         subprocess.run(['venv/Scripts/python.exe', 'mayascrape2.py', filename])
 
-        subprocess.run(['venv/Scripts/python.exe', 'shecoursefilter.py', filename])
+        #subprocess.run(['venv/Scripts/python.exe', 'shecoursefilter.py', filename])
 
         time.sleep(60*60)  # an hour
 

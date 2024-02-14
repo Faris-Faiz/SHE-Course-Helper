@@ -6,7 +6,7 @@ import altair as alt
 import plotly.graph_objects as go
 from datetime import datetime
 
-excel_file = ('mayascrapingproject/shecourselist.xlsx')
+excel_file = ('mayascrapingproject//SHE Course List (df2excel) - 202402141405.xlsx')
 
 st.set_page_config(page_title="SHE Helper!",
                    page_icon=":book:",
