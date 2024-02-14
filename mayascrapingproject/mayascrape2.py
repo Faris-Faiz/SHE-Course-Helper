@@ -7,13 +7,16 @@ import pandas as pd
 import openpyxl
 from dotenv import load_dotenv
 from openpyxl.worksheet.worksheet import Worksheet
-from selenium import webdriver
+# from selenium import webdriver
+from seleniumwire import webdriver
 from selenium.webdriver.common.by import By as by
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 from seleniumwire import undetected_chromedriver as uc
+from selenium.webdriver.chrome.service import Service
 from seleniumwire.utils import decode
 from bs4 import BeautifulSoup
+from databaseLoader import excel_to_json, on_save_to_supabase
 
 load_dotenv()
 
@@ -215,20 +218,40 @@ def map_cluster(df):
     }
 
     # Apply mapping function to each row
-    df['CLUSTER'] = df['CODE'].apply(lambda x: cluster_mapping.get(x[:2], None))
+    df['cluster'] = df['code'].apply(lambda x: cluster_mapping.get(x[:2], None))
 
     # Filter out rows with no matching cluster and create new DataFrame
-    she_course_df = df[df['CLUSTER'].notna()].copy()
+    she_course_df = df[df['cluster'].notna()].copy()
 
     return she_course_df
 
 def main():
     load_dotenv()
 
-    options = webdriver.ChromeOptions()
-    options.add_argument('--ignore-ssl-errors=yes')
-    options.add_argument('--ignore-certificate-errors')
-    driver = uc.Chrome(options=options)
+    import platform
+
+    platform_name = platform.system()
+    
+    if platform_name == "Windows":
+        options = webdriver.ChromeOptions()
+        options.add_argument('--ignore-ssl-errors=yes')
+        options.add_argument('--ignore-certificate-errors')
+        driver = uc.Chrome(options=options)
+    else:
+        # Setup for ChromeDriver using Service
+        chrome_driver_path = '/usr/lib/chromium-browser/chromedriver'  # Adjust this path as necessary
+        browser_driver_location = Service(chrome_driver_path)
+
+        # Set up Chrome options
+        options = {
+            'ignore_ssl_errors': True,  # Equivalent to '--ignore-ssl-errors=yes'
+            'ignore_http_errors': True,  # Equivalent to '--ignore-certificate-errors'
+            # Add any other selenium-wire options you need
+        }
+
+        # Initialize the WebDriver with the specified Service and options
+        driver = webdriver.Chrome(service=browser_driver_location, seleniumwire_options=options)
+    
     waiter = WebDriverWait(driver, 180)
 
     driver.get('https://maya.um.edu.my/sitsvision/wrd/siw_lgn')
@@ -247,7 +270,7 @@ def main():
     now = datetime.now().strftime(time_format)
 
     # Define the columns for the DataFrame
-    columns = ['FACULTY', 'CODE', 'COURSE NAME', 'OCCURRENCE', 'MEDIUM', 'REGISTERED', 'CAPACITY', 'FULL', 'WEEK', 'DAY', 'MENTOR', 'ROOM']
+    columns = ['faculty', 'code', 'course_name', 'occurrence', 'medium', 'registered', 'capacity', 'full', 'week', 'day', 'mentor', 'room']
 
     # Initialize an empty DataFrame with the specified columns
     df = pd.DataFrame(columns=columns)
@@ -325,25 +348,25 @@ def main():
             
             try:
                 mentor_list: list = subject.find_all('td')[5].text.strip().split('\n')
-                mentor = ', '.join(map(mentor_map, filter(str_fil, mentor_list)))  # 🥷
+                mentor = ', '.join(map(mentor_map, filter(str_fil, mentor_list)))  # ðŸ¥·
             except:
                 mentor = subject.find_all('td')[5].text.strip()
             
             room: str = subject.find_all('td')[6].text.strip()
 
             row_data = {
-                'FACULTY': faculty,
-                'CODE': code,
-                'COURSE NAME': course_name,
-                'OCCURRENCE': occurrence,
-                'MEDIUM': medium,
-                'REGISTERED': registered,
-                'CAPACITY': capacity,
-                'FULL': full,
-                'WEEK': week,
-                'DAY': day,
-                'MENTOR': mentor,
-                'ROOM': room
+                'faculty': faculty,
+                'code': code,
+                'course_name': course_name,
+                'occurrence': occurrence,
+                'medium': medium,
+                'registered': registered,
+                'capacity': capacity,
+                'full': full,
+                'week': week,
+                'day': day,
+                'mentor': mentor,
+                'room': room
             }
             df = pd.concat([df, pd.DataFrame([row_data])], ignore_index=True)
 
@@ -353,6 +376,8 @@ def main():
         # she course only
         she_course_df = map_cluster(df)
         she_course_df.to_excel(f'SHE Course List (df2excel) - {now}.xlsx', index=False)
+        file_name = f'SHE Course List (df2excel) - {now}.xlsx'
+        on_save_to_supabase(file_name)
     
         # write the latest time
         with open('lastran.txt', 'w') as f:
